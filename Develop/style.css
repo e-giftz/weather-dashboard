@@ -1,0 +1,40 @@
+:root {
+    --primary: #fafeff;
+    --secondary: #9caea9;
+    --tertiary: #788585;
+    --light-dark: #6f6866;
+    --dark: #596469;
+    --border-radius: 0.3rem;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    background-color: var(--primary);
+    margin: 0;
+    padding: 0;
+    font-family: 'IBM Plex Sans', sans-serif;
+    color: var(--dark);
+    line-height: 1.5;
+    font-size: 16px;
+}
+
+.hero {
+    padding: 2% 3%;
+    background-color: var(--dark);
+    color: var(--primary);
+}
+
+.app-title {
+    font-size: 3rem;
+    background-color: var(--primary);
+    padding: 0 10px;
+    display: inline-block;
+    border-radius: var(--border-radius);
+    box-shadow: 6px 5px var(--light-dark);
+    margin: 0;
+    color: var(--dark);
+    line-height: 1.25;
+}
