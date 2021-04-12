@@ -20,24 +20,21 @@ function searchFormSubmit(event) {
     event.preventDefault();
 
     if (searchInput.val() !== "") {
-        searchTerm = searchInput.val().trim();
-        if (searchTerm) {
-            getWeatherData(searchTerm);
-            //clear input field on focus
-            $('#search-input:text').focus(
-                function(){
-                    $(this).val('');
-                }
-            )
-        } else {
-            modalDiv.modal('show');
-
-            $(".btn").click(function () {
-                modalDiv.modal('hide');
-            });
-        }
+        searchTerm = searchInput.val();
+        getWeatherData(searchTerm);
+       
+    }else {
+        modalDiv.modal('show');
+        $('.btn').click(function () {
+            modalDiv.modal('hide');
+        });
     }
-
+    //clear input field on focus
+    $('#search-input:text').focus(
+        function () {
+            $(this).val('');
+        }
+    )
 }
 
 function getWeatherData(city) {
