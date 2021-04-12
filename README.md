@@ -36,11 +36,11 @@ This application made use of different technologies such  as:
 
 ## Screenshots of Web App
 
-![Password Generator App ](images/PasswordGeneratorApp.png)
+![Weather Dashboard App ](images/Weatherdashboard.png)
 
-![Password Generator App Output ](images/PasswordAppOutput.png)
+![Weather App with Prompt ](images/weatherdashboardprompt.png)
 
-## Password Generator App Demo
+## Weather App Demo
 
-![Password Generator App Demo ](images/PasswordAppDemo.gif)
+![Weather App Demo ](images/weather-demo.gif)
 
