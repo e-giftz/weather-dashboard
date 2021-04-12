@@ -38,3 +38,24 @@ body {
     color: var(--dark);
     line-height: 1.25;
 }
+
+
+#future-weather {
+    margin: 2px;
+    padding: 10px;
+}
+
+h1,
+h2,
+h3 {
+    font-weight: bold;
+}
+
+span{
+    font-size: 1em;
+}
+
+li:hover{
+    background-color:var(--tertiary);
+    text-decoration: underline;
+}
