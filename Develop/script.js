@@ -11,27 +11,33 @@ var inputContainer = $('.input-group');
 var savedCityName = [];
 
 
-function displayModalMessage (type, message) {
-    modalDiv.textContent =message;
+function displayModalMessage(type, message) {
+    modalDiv.textContent = message;
     modalDiv.setAttribute("class", type);
 }
 
-function searchFormSubmit (event) {
+function searchFormSubmit(event) {
     event.preventDefault();
 
-    if (searchInput.val()!== "") {
+    if (searchInput.val() !== "") {
         searchTerm = searchInput.val().trim();
         if (searchTerm) {
             getWeatherData(searchTerm);
+            //clear input field on focus
+            $('#search-input:text').focus(
+                function(){
+                    $(this).val('');
+                }
+            )
         } else {
             modalDiv.modal('show');
 
-            $(".btn").click(function(){
+            $(".btn").click(function () {
                 modalDiv.modal('hide');
-            }); 
-        } 
+            });
+        }
     }
-    
+
 }
 
 function getWeatherData(city) {
@@ -42,14 +48,13 @@ function getWeatherData(city) {
             return response.json();
         })
         .then(function (data) {
-            console.log(data);
+            //console.log(data);
             displayWeather(data);
         });
 
 }
 
 function displayWeather(cityname) {
-    console.log(cityname)
     var currentDate = moment().format("M/DD/YYYY");
     // Variables to store details 
     var currentIconImg = cityname.weather[0].icon;
@@ -69,7 +74,6 @@ function displayWeather(cityname) {
     // Set conditions  to save valid city entry
     if (cityname.cod==200){
         savedCityName=JSON.parse(localStorage.getItem('searchCity'));
-        console.log(savedCityName)
         if(savedCityName==null){
             savedCityName=[];
             savedCityName.push(searchTerm.toUpperCase());
@@ -93,7 +97,6 @@ function weatherForecast(latd, longd) {
             return response.json();
         })
         .then(function (data) {
-            console.log(data);
             
             for (var i=0;i<data.daily.length;i++){;
                 var today = moment();
@@ -110,7 +113,6 @@ function weatherForecast(latd, longd) {
                 $("#futureHumidity"+i).html(" "+humidityForecast+"%");
             }
         });
-
         
 }
 
@@ -122,7 +124,6 @@ function displayUVIndex(lat, long) {
             return response.json();
         })
         .then(function (data) {
-            console.log(data);
             $(currentCityUV).html(data.current.uvi)
         })
 }
